@@ -26,151 +26,242 @@ public class Quack extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        maiusculaMinuscula = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jTextField1 = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton5 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        JTextField = new javax.swing.JPanel();
+        Maiuscula = new javax.swing.JRadioButton();
+        Minuscula = new javax.swing.JRadioButton();
+        tfEntrada = new javax.swing.JTextField();
+        JCombo = new javax.swing.JPanel();
+        combo1 = new javax.swing.JComboBox<>();
+        combo2 = new javax.swing.JComboBox<>();
+        btnMostrar = new javax.swing.JButton();
+        lblresultado = new javax.swing.JLabel();
+        JTextArea = new javax.swing.JPanel();
+        limparAbas = new javax.swing.JPanel();
+        btnLimpar = new javax.swing.JButton();
+        btnAba1 = new javax.swing.JButton();
+        btnAba2 = new javax.swing.JButton();
+        btnAba3 = new javax.swing.JButton();
+        menu = new javax.swing.JMenuBar();
+        menuArquivo = new javax.swing.JMenu();
+        menuSair = new javax.swing.JMenuItem();
+        menuSobre = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Maiuscula");
+        maiusculaMinuscula.add(Maiuscula);
+        Maiuscula.setText("Maiuscula");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Minuscula");
+        maiusculaMinuscula.add(Minuscula);
+        Minuscula.setText("Minuscula");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        tfEntrada.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfEntradaKeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JTextFieldLayout = new javax.swing.GroupLayout(JTextField);
+        JTextField.setLayout(JTextFieldLayout);
+        JTextFieldLayout.setHorizontalGroup(
+            JTextFieldLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JTextFieldLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
+                .addGroup(JTextFieldLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tfEntrada)
+                    .addGroup(JTextFieldLayout.createSequentialGroup()
+                        .addComponent(Maiuscula)
                         .addGap(70, 70, 70)
-                        .addComponent(jRadioButton2)))
+                        .addComponent(Minuscula)))
                 .addContainerGap(485, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        JTextFieldLayout.setVerticalGroup(
+            JTextFieldLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JTextFieldLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                .addGroup(JTextFieldLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Maiuscula)
+                    .addComponent(Minuscula))
                 .addGap(40, 40, 40)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(252, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("JTextField", jPanel2);
+        jTabbedPane1.addTab("JTextField", JTextField);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pato", "Panda", "Pterodactil" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        btnMostrar.setText("Mostrar Combo");
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Mostrar Combo");
+        lblresultado.setText("O combo formado:");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout JComboLayout = new javax.swing.GroupLayout(JCombo);
+        JCombo.setLayout(JComboLayout);
+        JComboLayout.setHorizontalGroup(
+            JComboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JComboLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox2, 0, 150, Short.MAX_VALUE))
-                .addContainerGap(579, Short.MAX_VALUE))
+                .addGroup(JComboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnMostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(combo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(combo2, 0, 150, Short.MAX_VALUE))
+                .addGap(119, 119, 119)
+                .addComponent(lblresultado)
+                .addContainerGap(339, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        JComboLayout.setVerticalGroup(
+            JComboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JComboLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(combo1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(JComboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combo2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblresultado))
                 .addGap(35, 35, 35)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(121, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("JCombo", jPanel3);
+        jTabbedPane1.addTab("JCombo", JCombo);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout JTextAreaLayout = new javax.swing.GroupLayout(JTextArea);
+        JTextArea.setLayout(JTextAreaLayout);
+        JTextAreaLayout.setHorizontalGroup(
+            JTextAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 789, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        JTextAreaLayout.setVerticalGroup(
+            JTextAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("JTextArea", jPanel4);
+        jTabbedPane1.addTab("JTextArea", JTextArea);
 
-        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
+        limparAbas.setLayout(new java.awt.GridLayout(1, 0));
 
-        jButton1.setText("Limpar");
-        jPanel1.add(jButton1);
+        btnLimpar.setText("Limpar");
+        btnLimpar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLimparMouseClicked(evt);
+            }
+        });
+        limparAbas.add(btnLimpar);
 
-        jButton2.setText("Aba 1");
-        jPanel1.add(jButton2);
+        btnAba1.setText("Aba 1");
+        btnAba1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAba1MouseClicked(evt);
+            }
+        });
+        limparAbas.add(btnAba1);
 
-        jButton3.setText("Aba 2");
-        jPanel1.add(jButton3);
+        btnAba2.setText("Aba 2");
+        btnAba2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAba2MouseClicked(evt);
+            }
+        });
+        limparAbas.add(btnAba2);
 
-        jButton4.setText("Aba 3");
-        jPanel1.add(jButton4);
+        btnAba3.setText("Aba 3");
+        btnAba3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAba3MouseClicked(evt);
+            }
+        });
+        limparAbas.add(btnAba3);
 
-        jMenu1.setText("Arquivo");
+        menuArquivo.setText("Arquivo");
 
-        jMenuItem1.setText("Sair");
-        jMenu1.add(jMenuItem1);
+        menuSair.setText("Sair");
+        menuSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSairActionPerformed(evt);
+            }
+        });
+        menuArquivo.add(menuSair);
 
-        jMenuBar1.add(jMenu1);
+        menu.add(menuArquivo);
 
-        jMenu2.setText("Sobre");
-        jMenuBar1.add(jMenu2);
+        menuSobre.setText("Sobre");
+        menu.add(menuSobre);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(limparAbas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(limparAbas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
+        System.out.println("MENU SAIR EVENTO");
+        dispose();
+    }//GEN-LAST:event_menuSairActionPerformed
+
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        System.out.println("BTNMOSTRAR EVENTO");
+        
+        lblresultado.setText(combo1.getSelectedItem().toString());
+        
+    }//GEN-LAST:event_btnMostrarActionPerformed
+
+    private void tfEntradaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfEntradaKeyTyped
+        System.out.println("TFENTRADA EVENTO");
+        char caractereDigitado = evt.getKeyChar();
+        if(Maiuscula.isSelected()){
+            caractereDigitado = Character.toUpperCase(caractereDigitado);
+            System.out.println("Maiuscula");
+        }if(Minuscula.isSelected()){
+            caractereDigitado = Character.toLowerCase(caractereDigitado);
+            System.out.println("Minuscula");
+        }
+        evt.setKeyChar(caractereDigitado);
+    }//GEN-LAST:event_tfEntradaKeyTyped
+
+    private void btnLimparMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimparMouseClicked
+        tfEntrada.setText("");
+    }//GEN-LAST:event_btnLimparMouseClicked
+
+    private void btnAba1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAba1MouseClicked
+        int indiceAba = jTabbedPane1.indexOfTab("JTextField");
+        if (indiceAba != -1) {
+            jTabbedPane1.setSelectedIndex(indiceAba);
+        }
+    }//GEN-LAST:event_btnAba1MouseClicked
+
+    private void btnAba2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAba2MouseClicked
+        int indiceAba = jTabbedPane1.indexOfTab("JCombo");
+        if (indiceAba != -1) {
+            jTabbedPane1.setSelectedIndex(indiceAba);
+        }
+    }//GEN-LAST:event_btnAba2MouseClicked
+
+    private void btnAba3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAba3MouseClicked
+        int indiceAba = jTabbedPane1.indexOfTab("JTextArea");
+        if (indiceAba != -1) {
+            jTabbedPane1.setSelectedIndex(indiceAba);
+        }
+    }//GEN-LAST:event_btnAba3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -208,25 +299,26 @@ public class Quack extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JPanel JCombo;
+    private javax.swing.JPanel JTextArea;
+    private javax.swing.JPanel JTextField;
+    private javax.swing.JRadioButton Maiuscula;
+    private javax.swing.JRadioButton Minuscula;
+    private javax.swing.JButton btnAba1;
+    private javax.swing.JButton btnAba2;
+    private javax.swing.JButton btnAba3;
+    private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnMostrar;
+    private javax.swing.JComboBox<String> combo1;
+    private javax.swing.JComboBox<String> combo2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblresultado;
+    private javax.swing.JPanel limparAbas;
+    private javax.swing.ButtonGroup maiusculaMinuscula;
+    private javax.swing.JMenuBar menu;
+    private javax.swing.JMenu menuArquivo;
+    private javax.swing.JMenuItem menuSair;
+    private javax.swing.JMenu menuSobre;
+    private javax.swing.JTextField tfEntrada;
     // End of variables declaration//GEN-END:variables
 }
