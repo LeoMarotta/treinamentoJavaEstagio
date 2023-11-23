@@ -91,6 +91,12 @@ public class Quack extends javax.swing.JFrame {
         jTabbedPane1.addTab("JTextField", JTextField);
 
         combo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pato", "Panda", "Pterodactil" }));
+        combo1.setSelectedItem("");
+        combo1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                combo1ItemStateChanged(evt);
+            }
+        });
 
         btnMostrar.setText("Mostrar Combo");
         btnMostrar.addActionListener(new java.awt.event.ActionListener() {
@@ -221,7 +227,7 @@ public class Quack extends javax.swing.JFrame {
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         System.out.println("BTNMOSTRAR EVENTO");
         
-        lblresultado.setText(combo1.getSelectedItem().toString());
+        lblresultado.setText(combo2.getSelectedItem().toString());
         
     }//GEN-LAST:event_btnMostrarActionPerformed
 
@@ -262,6 +268,27 @@ public class Quack extends javax.swing.JFrame {
             jTabbedPane1.setSelectedIndex(indiceAba);
         }
     }//GEN-LAST:event_btnAba3MouseClicked
+
+    private void combo1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo1ItemStateChanged
+        combo2.removeAllItems();
+        String itemSelecionado = (String) combo1.getSelectedItem();
+        if (itemSelecionado != null) {
+            switch (itemSelecionado) {
+                case "Pato":
+                    combo2.addItem("Pato Cinza");
+                    combo2.addItem("Pato Branco");
+                    break;
+                case "Panda":
+                    combo2.addItem("Panda Branco");
+                    combo2.addItem("Panda Vermelho");
+                    break;
+                case "Pterodactil":
+                    combo2.addItem("Pterodactil Verde");
+                    combo2.addItem("Pterodactil Vermelho");
+                    break;
+            }
+        }
+    }//GEN-LAST:event_combo1ItemStateChanged
 
     /**
      * @param args the command line arguments
