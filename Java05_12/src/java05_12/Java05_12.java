@@ -14,7 +14,9 @@ public class Java05_12 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+            Object o =new Filho();
+           o = new Filho("Ola");
+ 
     }
     
 }
