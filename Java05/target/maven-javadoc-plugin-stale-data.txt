@@ -1,0 +1,48 @@
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+-sourcepath
+'/home/leomarotta/NetBeansProjects/Java05/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Java05 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' '/home/leomarotta/NetBeansProjects/Java05/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Java05 1.0-SNAPSHOT API'
+treino.java05
+/home/leomarotta/NetBeansProjects/Java05/src/main/java = 1700830702265
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/element-list = 1700831446600
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/constant-values.html = 1700831446613
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/overview-tree.html = 1700831446624
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/package-search-index.js = 1700831446630
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/package-search-index.zip = 1700831446638
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/type-search-index.js = 1700831446639
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/type-search-index.zip = 1700831446639
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/member-search-index.js = 1700831446639
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/member-search-index.zip = 1700831446639
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/index-all.html = 1700831446640
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/allclasses-index.html = 1700831446644
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/allpackages-index.html = 1700831446646
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/deprecated-list.html = 1700831446659
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/allclasses.html = 1700831446661
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/index.html = 1700831446666
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/help-doc.html = 1700831446668
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/stylesheet.css = 1700831446670
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/script.js = 1700831446670
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/search.js = 1700831446671
+/home/leomarotta/NetBeansProjects/Java05/target/site/apidocs/jquery-ui.overrides.css = 1700831446675

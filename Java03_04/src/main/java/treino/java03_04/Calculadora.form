@@ -250,14 +250,8 @@
           </SubComponents>
         </Container>
         <Component class="javax.swing.JTextField" name="tfSegundo">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfSegundoActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tfPrimeiro">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPrimeiroActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

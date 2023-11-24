@@ -13,10 +13,17 @@ public class Calculadora extends javax.swing.JFrame {
     /**
      * Creates new form Calculadora
      */
+    
     public Calculadora() {
-        initComponents();
+        initComponents();    
+
     }
 
+    Soma instanciaSoma = new Soma();
+    Sub instanciaSub = new Sub();
+    Div instanciaDiv = new Div();
+    Multi instanciaMulti = new Multi();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,7 +82,7 @@ public class Calculadora extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        jPanel3.setLayout(new java.awt.GridLayout());
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         pResultado.setBackground(new java.awt.Color(255, 255, 255));
         pResultado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
@@ -95,7 +102,7 @@ public class Calculadora extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
-        jPanel5.setLayout(new java.awt.GridLayout());
+        jPanel5.setLayout(new java.awt.GridLayout(1, 0));
 
         btSoma.setBackground(new java.awt.Color(51, 51, 51));
         btSoma.setText("+");
@@ -132,18 +139,6 @@ public class Calculadora extends javax.swing.JFrame {
             }
         });
         jPanel5.add(btDiv);
-
-        tfSegundo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfSegundoActionPerformed(evt);
-            }
-        });
-
-        tfPrimeiro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfPrimeiroActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -193,32 +188,32 @@ public class Calculadora extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btMultiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMultiActionPerformed
-        float resultado = Float.parseFloat(tfPrimeiro.getText()) * Float.parseFloat(tfSegundo.getText());
+        Multi instanciaMulti = new Multi();float primeiro = Float.parseFloat(tfPrimeiro.getText());
+        float segundo = Float.parseFloat(tfSegundo.getText());
+        float resultado = (float)instanciaMulti.calcular(primeiro, segundo);
         tfResultado.setText(String.valueOf(resultado));
     }//GEN-LAST:event_btMultiActionPerformed
 
     private void btDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDivActionPerformed
-        float resultado = Float.parseFloat(tfPrimeiro.getText()) / Float.parseFloat(tfSegundo.getText());
+        float primeiro = Float.parseFloat(tfPrimeiro.getText());
+        float segundo = Float.parseFloat(tfSegundo.getText());
+        float resultado = (float)instanciaDiv.calcular(primeiro, segundo);
         tfResultado.setText(String.valueOf(resultado));
     }//GEN-LAST:event_btDivActionPerformed
 
-    private void tfPrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPrimeiroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfPrimeiroActionPerformed
-
     private void btSomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSomaActionPerformed
-        float resultado = Float.parseFloat(tfPrimeiro.getText()) + Float.parseFloat(tfSegundo.getText());
+        float primeiro = Float.parseFloat(tfPrimeiro.getText());
+        float segundo = Float.parseFloat(tfSegundo.getText());
+        float resultado = (float)instanciaSoma.calcular(primeiro, segundo);
         tfResultado.setText(String.valueOf(resultado));
     }//GEN-LAST:event_btSomaActionPerformed
 
     private void btSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSubActionPerformed
-        float resultado = Float.parseFloat(tfPrimeiro.getText()) - Float.parseFloat(tfSegundo.getText());
+        float primeiro = Float.parseFloat(tfPrimeiro.getText());
+        float segundo = Float.parseFloat(tfSegundo.getText());
+        var resultado = (float)instanciaSub.calcular(primeiro, segundo);
         tfResultado.setText(String.valueOf(resultado));
     }//GEN-LAST:event_btSubActionPerformed
-
-    private void tfSegundoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSegundoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfSegundoActionPerformed
 
     /**
      * @param args the command line arguments
