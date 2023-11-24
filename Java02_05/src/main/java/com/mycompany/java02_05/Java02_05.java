@@ -10,6 +10,11 @@ package com.mycompany.java02_05;
  * 
  */
 
+/**
+ * 
+ * Quinto exercicio de Java. Criando métodos para a classes dada.
+ */
+
 class Matematica {
     private int valor;
     

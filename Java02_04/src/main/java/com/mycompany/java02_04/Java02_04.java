@@ -8,6 +8,12 @@ package com.mycompany.java02_04;
  *
  * @author leomarotta
  */
+
+/** 
+ * 
+ * Quarto exercicio de Java. Aprendendo de debug e watch
+ */
+
 public class Java02_04 {
 
 static int processaValor(int val){

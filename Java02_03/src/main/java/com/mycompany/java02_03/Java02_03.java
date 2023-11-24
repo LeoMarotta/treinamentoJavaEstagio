@@ -8,6 +8,12 @@ package com.mycompany.java02_03;
  *
  * @author leomarotta
  */
+
+/**
+ * 
+ * Terceiro exercicio de java. Mais testes com debug
+ */
+
 public class Java02_03 {
 
     public static void main(String[] args) {

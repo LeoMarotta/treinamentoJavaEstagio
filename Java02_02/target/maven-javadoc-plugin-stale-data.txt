@@ -1,0 +1,48 @@
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+-sourcepath
+'/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Java02_02 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' '/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Java02_02 1.0-SNAPSHOT API'
+com.mycompany.java02_02
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/src/main/java = 1700134430577
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/element-list = 1700831194803
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/constant-values.html = 1700831194818
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/overview-tree.html = 1700831194828
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/package-search-index.js = 1700831194832
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/package-search-index.zip = 1700831194839
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/type-search-index.js = 1700831194839
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/type-search-index.zip = 1700831194840
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/member-search-index.js = 1700831194840
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/member-search-index.zip = 1700831194840
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/index-all.html = 1700831194841
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/allclasses-index.html = 1700831194850
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/allpackages-index.html = 1700831194852
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/deprecated-list.html = 1700831194859
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/allclasses.html = 1700831194860
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/index.html = 1700831194861
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/help-doc.html = 1700831194863
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/stylesheet.css = 1700831194864
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/script.js = 1700831194865
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/search.js = 1700831194865
+/home/leomarotta/GITHUB/treinamentoJavaEstagio/Java02_02/target/site/apidocs/jquery-ui.overrides.css = 1700831194869

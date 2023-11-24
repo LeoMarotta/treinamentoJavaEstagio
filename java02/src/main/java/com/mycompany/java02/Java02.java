@@ -9,6 +9,11 @@ package com.mycompany.java02;
  * @author leomarotta
  */
 
+/**
+ * 
+ * Primeiro exercicio de java, inversão de strings "Qual o maior valor de i? Qual resultado no console?"
+ */
+
 class TransformaString {
 
     public String inverte(String param){
