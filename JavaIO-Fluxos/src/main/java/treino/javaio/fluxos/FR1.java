@@ -4,27 +4,28 @@
  */
 package treino.javaio.fluxos;
 
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 
 /**
  *
  * @author leomarotta
  */
-public class DOS1 {
-    public void writet(){
-        DataOutputStream dos = null;
+public class FR1 {
+    public void readf(){
         try {
-            File arquivo = new File("/home/leomarotta/Documentos/quack.txt");
-            dos = new DataOutputStream(new FileOutputStream(arquivo));
-            dos.writeUTF("Teste de gravação");
-            dos.writeDouble(12375.564);
-            dos.writeInt(76849224);
-            dos.close();
-            System.out.println("ESCRITA EM quack COMPLETA");
+            File arquivo = new File("/home/leomarotta/Documentos/quackDeArquivo.txt");
+            FileReader fr = new FileReader(arquivo);
+            int leitura = -1;
+            do {
+                leitura = fr.read();
+                if (leitura != -1) {
+                    System.out.println(leitura + " " + (char) leitura);
+                }
+            } while (leitura != -1);
+            fr.close();
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
