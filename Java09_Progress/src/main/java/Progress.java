@@ -123,7 +123,6 @@ public class Progress extends javax.swing.JFrame {
             }
         };
         
-        
         new Thread(showContador).start();
     }//GEN-LAST:event_btIniciarActionPerformed
 
