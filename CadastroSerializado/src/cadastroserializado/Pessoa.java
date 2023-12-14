@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package java10_serializar;
+package cadastroserializado;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,19 +17,19 @@ import java.io.Serializable;
  * @author leomarotta
  */
 public class Pessoa implements Serializable {
-    private long id;
     private String nome;
-    
+    private String endereco;
+        
     public Pessoa(){
         System.out.println("Executou Construtor");
     }
     
-    public long getId() {
-        return id;
+    public String getEndereco() {
+        return endereco;
     }
     
-    public void setId(long id) {
-        this.id = id;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
     
     public String getNome() {
@@ -58,8 +58,8 @@ public class Pessoa implements Serializable {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("/home/leomarotta/Documentos/quack.txt"));
             String s = (String) ois.readObject();
             Pessoa p1 = (Pessoa) ois.readObject();
-            System.out.println("Id da Pessoa: " + p1.getId());
             System.out.println("Nome da Pessoa: " + p1.getNome());
+            System.out.println("Endereço da Pessoa: " + p1.getEndereco());
             ois.close();
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
