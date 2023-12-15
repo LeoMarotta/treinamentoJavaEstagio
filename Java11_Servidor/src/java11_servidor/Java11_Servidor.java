@@ -7,6 +7,8 @@ package java11_servidor;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  *
@@ -14,6 +16,9 @@ import java.net.DatagramSocket;
  */
 public class Java11_Servidor {
 
+    private static final int PORT = 8889;
+    private static final int THREAD_POOL_SIZE = 10;
+    
     /**
      * @param args the command line arguments
      */
@@ -46,25 +51,21 @@ public class Java11_Servidor {
         
         //UDP
         
-        try {
-            DatagramSocket dtSocket = new DatagramSocket(8889);
+        ExecutorService executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
 
-            DatagramPacket pacote = new DatagramPacket(new byte[512], 512);
-            dtSocket.receive(pacote);
+        try (DatagramSocket dtSocket = new DatagramSocket(PORT)) {
+            while (true) {
+                DatagramPacket pacote = new DatagramPacket(new byte[512], 512);
+                dtSocket.receive(pacote);
 
-            String msgCliente = new String(pacote.getData());
-            System.out.println("Nome do Cliente: " + msgCliente);
-            System.out.println("IP do Cliente: " + pacote.getAddress().getHostAddress());
-            System.out.println("Porta do Cliente: " + pacote.getPort());
-
-            byte[] buffer = ("Olá cliente " + msgCliente).getBytes();
-            pacote = new DatagramPacket(buffer, buffer.length, pacote.getAddress(), pacote.getPort());
-            dtSocket.send(pacote);
-
-            dtSocket.close();
+                // Criar uma nova thread para lidar com o cliente
+                executorService.submit(new ClienteHandler(dtSocket, pacote));
+            }
         } catch (IOException ex) {
-            System.out.println("Não foi possível montar a conexão no servidor.");
+            System.out.println("Erro no servidor: " + ex.getMessage());
             ex.printStackTrace();
+        } finally {
+            executorService.shutdown();
         }
     } 
 }
