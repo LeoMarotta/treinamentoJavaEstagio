@@ -4,19 +4,22 @@
  */
 package cadastroserializado;
 
+import java.util.List;
+import java.io.EOFException;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
  * @author leomarotta
  */
 public class Pessoa implements Serializable {
+    private static final String FILE_PATH = "/home/leomarotta/Documentos/BDfake.txt";
     private String nome;
     private String endereco;
         
@@ -40,34 +43,31 @@ public class Pessoa implements Serializable {
         this.nome = nome;
     }
     
-    public void serializar(Pessoa pessoa){
-        try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("/home/leomarotta/Documentos/quack.txt"));
-            oos.writeObject("Gravando objeto\n");
-            oos.writeObject(pessoa);
-            oos.close();
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
+    public static void serializar(List<Pessoa> pessoas) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_PATH))) {
+            for (Pessoa pessoa : pessoas) {
+                oos.writeObject(pessoa);
+            }
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
     
-    public void deserializar(){
-        try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("/home/leomarotta/Documentos/quack.txt"));
-            String s = (String) ois.readObject();
-            Pessoa p1 = (Pessoa) ois.readObject();
-            System.out.println("Nome da Pessoa: " + p1.getNome());
-            System.out.println("Endereço da Pessoa: " + p1.getEndereco());
-            ois.close();
-        } catch (ClassNotFoundException ex) {
+    public static List<Pessoa> deserializar() {
+        List<Pessoa> pessoas = new ArrayList<>();
+
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_PATH))) {
+            while (true) {
+                Pessoa pessoa = (Pessoa) ois.readObject();
+                pessoas.add(pessoa);
+            }
+        } catch (EOFException eofException) {
+            // Fim do arquivo alcançado
+        } catch (ClassNotFoundException | IOException ex) {
             ex.printStackTrace();
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        } 
+        }
+
+        return pessoas;
     }
     
 }

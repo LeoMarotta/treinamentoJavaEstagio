@@ -4,6 +4,10 @@
  */
 package cadastroserializado;
 
+import java.io.File;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author leomarotta
@@ -48,6 +52,11 @@ public class CadastroSerializado extends javax.swing.JFrame {
         lblEndereco.setText("Endereço:");
 
         btSalvar.setText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarActionPerformed(evt);
+            }
+        });
 
         tbPessoa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -60,6 +69,11 @@ public class CadastroSerializado extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbPessoa);
 
         btRecuperar.setText("Recuperar");
+        btRecuperar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRecuperarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -116,10 +130,41 @@ public class CadastroSerializado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        // TODO add your handling code here:
+        String nome = txtNome.getText();
+        String endereco = txtEndereco.getText();
+
+        Pessoa novaPessoa = new Pessoa();
+        novaPessoa.setNome(nome);
+        novaPessoa.setEndereco(endereco);
+
+        PessoaDAO.salvarPessoa(novaPessoa);
+
+        // Limpa os campos de texto após salvar
+        txtNome.setText("");
+        txtEndereco.setText("");
+    }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void btRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRecuperarActionPerformed
+        // TODO add your handling code here:
+        List<Pessoa> pessoas = PessoaDAO.listarPessoas();
+
+        DefaultTableModel model = (DefaultTableModel) tbPessoa.getModel();
+        model.setRowCount(0);
+
+        for (Pessoa pessoa : pessoas) {
+            Object[] row = {pessoa.getNome(), pessoa.getEndereco()};
+            model.addRow(row);
+        }
+    }//GEN-LAST:event_btRecuperarActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        File arquivo = new File("/home/leomarotta/Documentos/BDfake.txt");
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
