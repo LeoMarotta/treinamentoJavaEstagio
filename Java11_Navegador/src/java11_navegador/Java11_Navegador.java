@@ -12,11 +12,15 @@ import java.lang.System.Logger.Level;
  *
  * @author leomarotta
  */
+
+
 public class Java11_Navegador extends javax.swing.JFrame {
 
     /**
      * Creates new form Java11_Navegador
      */
+
+    
     public Java11_Navegador() {
         initComponents();
     }
