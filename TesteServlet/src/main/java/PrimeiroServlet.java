@@ -39,6 +39,7 @@ public class PrimeiroServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
+            out.println("<link rel='stylesheet' type='text/css' href='styles.css'>");
             out.println("<title>Calculadora</title>");            
             out.println("</head>");
             out.println("<body>");
@@ -121,12 +122,12 @@ public class PrimeiroServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
+            out.println("<link rel='stylesheet' type='text/css' href='styles.css'>");
             out.println("<title>Calculadora</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Calculadora</h1>");
 
-            // Formulário para solicitações GET
             out.println("<form action=\"PrimeiroServlet\" method=\"get\">");
             out.println("  <label for=\"elem1\">Valor 1:</label>");
             out.println("  <input type=\"text\" name=\"elem1\"><br>");
@@ -140,7 +141,6 @@ public class PrimeiroServlet extends HttpServlet {
             out.println("  <input type=\"submit\" value=\"Calcular\">");
             out.println("</form>");
 
-            // Lógica para processar solicitações GET
             String operacao = request.getParameter("oper");
             String valor1Str = request.getParameter("elem1");
             String valor2Str = request.getParameter("elem2");
