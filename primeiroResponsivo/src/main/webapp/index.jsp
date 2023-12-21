@@ -7,13 +7,19 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" type="text/css" href="style/default.css">
+        <script src="scripts/default.js"></script> 
+        <style>
+            .eye {
+                transition: transform 0.5s; 
+            }
+        </style>
     </head>
     <body>
         <div class="blue-square">
-            <div class="eye left"></div>
-            <div class="eye right"></div>
+            <div class="eye left" id="left-eye" onmouseover="blinkLeftEye()" onmouseout="resetLeftEye()"></div>
+            <div class="eye right" id="right-eye"></div>
             <div class="nose"></div>
-            <div class="mouth"></div>
+            <div class="mouth" onmouseover="blinkLeftEye()" onmouseout="resetLeftEye()"></div>
         </div>
     </body>
 </html>
