@@ -100,6 +100,8 @@ public class PrimeiroServlet extends HttpServlet {
         } finally {
             out.close();
         }
+
+        System.out.println("Requisição invocada no método service");
         LOGGER.log(Level.INFO, "Requisição invocada no método service");
     }
 
@@ -175,6 +177,7 @@ public class PrimeiroServlet extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         LOGGER.log(Level.INFO, "Invocou um servlet no método init");
+        System.out.println("Invocou um servlet no método init");
     }
 
     /**

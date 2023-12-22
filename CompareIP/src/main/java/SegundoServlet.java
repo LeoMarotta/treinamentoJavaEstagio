@@ -36,32 +36,26 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
         PrintWriter out = response.getWriter();
 
         try {
-            // Obtém o endereço IP do cliente
             String ipCliente = request.getRemoteAddr();
-
-            // Obtém o endereço IP do servidor
             String ipServidor = request.getLocalAddr();
 
-            // Obtém a hora da conexão
             Date dataHoraAtual = new Date();
             SimpleDateFormat formatoHora = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             String horaConexao = formatoHora.format(dataHoraAtual);
 
-            // Obtém o locale do cliente
             Locale localeCliente = request.getLocale();
             String idiomaCliente = localeCliente.getLanguage();
 
-            // Verifica se o cliente está na mesma rede (CASA) ou é estrangeiro (ESTRANGEIRO)
             String statusCliente = (ipCliente.equals(ipServidor)) ? "CASA" : "ESTRANGEIRO";
 
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet TerceiroServlet</title>");
+            out.println("<link rel='stylesheet' type='text/css' href='style.css'>");
+            out.println("<title>Comparação de IP</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>HOME</h1>");
-            out.println("<p>STRANGER: " + statusCliente + "</p>");
+            out.println("<h1>" + statusCliente + "</h1>");
             out.println("<p>IP do Cliente: " + ipCliente + "</p>");
             out.println("<p>IP do Servidor: " + ipServidor + "</p>");
             out.println("<p>Hora da Conexão: " + horaConexao + "</p>");
@@ -69,7 +63,6 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
             out.println("</body>");
             out.println("</html>");
 
-            // Exibe informações no console do Glassfish
             System.out.println("IP do Cliente: " + ipCliente);
             System.out.println("Hora da Conexão: " + horaConexao);
         } finally {
