@@ -5,9 +5,6 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,13 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
  *
  * @author leomarotta
  */
-@WebServlet(urlPatterns = {"/SegundoServlet"})
-public class SegundoServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/ServletGC"})
+public class ServletGC extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,36 +29,15 @@ public class SegundoServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     
-    
-protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
         try {
-            String ipCliente = request.getRemoteAddr();
-            String ipServidor = request.getLocalAddr();
-
-            Date dataHoraAtual = new Date();
-            SimpleDateFormat formatoHora = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            String horaConexao = formatoHora.format(dataHoraAtual);
-
-            Locale localeCliente = request.getLocale();
-            String idiomaCliente = localeCliente.getLanguage();
-
-            String statusCliente = (ipCliente.equals(ipServidor)) ? "CASA" : "ESTRANGEIRO";
-
-            request.setAttribute("statusCliente", statusCliente);
-            request.setAttribute("ipCliente", ipCliente);
-            request.setAttribute("ipServidor", ipServidor);
-            request.setAttribute("horaConexao", horaConexao);
-            request.setAttribute("idiomaCliente", idiomaCliente);
+            /* TODO output your page here. You may use following sample code. */
             
             RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
             dispatcher.forward(request, response);
-
-            System.out.println("IP do Cliente: " + ipCliente);
-            System.out.println("Hora da Conexão: " + horaConexao);
         } finally {
             out.close();
         }
@@ -94,7 +69,22 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        // Obtém o valor do parâmetro 'club' enviado no formulário
+        String club = request.getParameter("club");
+
+        // Verifica se o parâmetro 'club' está presente e não é nulo
+        if (club != null && !club.isEmpty()) {
+            // Redireciona para a página da cor adequada com base na escolha do usuário
+            if (club.equals("gremio")) {
+                response.sendRedirect("pagina-vermelha.jsp");
+            } else if (club.equals("internacional")) {
+                response.sendRedirect("pagina-azul.jsp");
+            }
+        } else {
+            // Se o parâmetro 'club' não estiver presente, redireciona de volta para a página inicial
+            response.sendRedirect("index.jsp");
+        }
     }
 
     /**
@@ -106,5 +96,4 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }
