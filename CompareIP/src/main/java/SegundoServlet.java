@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,20 +49,14 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
 
             String statusCliente = (ipCliente.equals(ipServidor)) ? "CASA" : "ESTRANGEIRO";
 
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<link rel='stylesheet' type='text/css' href='style.css'>");
-            out.println("<title>Comparação de IP</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>" + statusCliente + "</h1>");
-            out.println("<p>IP do Cliente: " + ipCliente + "</p>");
-            out.println("<p>IP do Servidor: " + ipServidor + "</p>");
-            out.println("<p>Hora da Conexão: " + horaConexao + "</p>");
-            out.println("<p>Idioma do Cliente: " + idiomaCliente + "</p>");
-            out.println("</body>");
-            out.println("</html>");
+            request.setAttribute("statusCliente", statusCliente);
+            request.setAttribute("ipCliente", ipCliente);
+            request.setAttribute("ipServidor", ipServidor);
+            request.setAttribute("horaConexao", horaConexao);
+            request.setAttribute("idiomaCliente", idiomaCliente);
+            
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+            dispatcher.forward(request, response);
 
             System.out.println("IP do Cliente: " + ipCliente);
             System.out.println("Hora da Conexão: " + horaConexao);
