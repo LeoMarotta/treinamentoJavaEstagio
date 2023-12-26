@@ -11,8 +11,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Página Azul - Colorado</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body style="background-color: blue;">
-        <h1>Você é Colorado!</h1>
+        <h1>Você é Gremista!</h1>
     </body>
 </html>

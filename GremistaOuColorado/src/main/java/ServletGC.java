@@ -69,20 +69,17 @@ public class ServletGC extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        // Obtém o valor do parâmetro 'club' enviado no formulário
+
         String club = request.getParameter("club");
 
-        // Verifica se o parâmetro 'club' está presente e não é nulo
         if (club != null && !club.isEmpty()) {
-            // Redireciona para a página da cor adequada com base na escolha do usuário
+
             if (club.equals("gremio")) {
-                response.sendRedirect("pagina-vermelha.jsp");
-            } else if (club.equals("internacional")) {
                 response.sendRedirect("pagina-azul.jsp");
+            } else if (club.equals("internacional")) {
+                response.sendRedirect("pagina-vermelha.jsp");
             }
         } else {
-            // Se o parâmetro 'club' não estiver presente, redireciona de volta para a página inicial
             response.sendRedirect("index.jsp");
         }
     }

@@ -1,19 +1,20 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Gremista ou Colorada?</title>
+        <title>Gremista ou Colorado?</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <form method="post" action="ServletGC">
-            <label for="club">Você é gremista ou colorado?</label>
-            <select name="club" id="club">
-                <option value="gremio">Gremista</option>
-                <option value="internacional">Colorado</option>
-            </select>
-            <input type="submit" value="Enviar">
-        </form>
+        <div class="container">
+            <h1>Gremista ou Colorado?</h1>
+            <form method="post" action="ServletGC">
+                <button type="submit" name="club" value="gremio">Gremista</button>
+                <button type="submit" name="club" value="internacional">Colorado</button>
+            </form>
+        </div>
     </body>
 </html>
