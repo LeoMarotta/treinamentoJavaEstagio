@@ -4,10 +4,10 @@
  */
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,14 +28,18 @@ public class RedirecionaPesquisa extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        
+            response.setContentType("text/html;charset=UTF-8");
+        
+            String ultimaEscolha = getUltimaEscolha(request);
+            request.setAttribute("ultimaEscolha", ultimaEscolha);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
             dispatcher.forward(request, response);
-        }
+            
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -47,6 +51,22 @@ public class RedirecionaPesquisa extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    private String getUltimaEscolha(HttpServletRequest request) {
+        // Obtém os cookies da requisição
+        Cookie[] cookies = request.getCookies();
+
+        // Procura pelo cookie 'ultimaEscolha'
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("ultimaEscolha")) {
+                    return cookie.getValue();
+                }
+            }
+        }
+        return "";
+    }
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -64,7 +84,13 @@ public class RedirecionaPesquisa extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        String buscadorEscolhido = request.getParameter("buscador");
+
+        Cookie cookie = new Cookie("ultimaEscolha", buscadorEscolhido);
+        response.addCookie(cookie);
+
+        response.sendRedirect(request.getContextPath() + "/RedirecionaPesquisa");
     }
 
     /**
