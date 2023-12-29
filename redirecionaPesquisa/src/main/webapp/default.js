@@ -4,3 +4,14 @@
  */
 
 
+function verificarRadio() {
+    var radios = document.getElementsByName('buscador');
+    var selecionado = null;
+
+    for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+            selecionado = radios[i].value;
+            break;
+        }
+    }
+}

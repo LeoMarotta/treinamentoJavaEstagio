@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author leomarotta
  */
+
 @WebServlet(urlPatterns = {"/RedirecionaPesquisa"})
 public class RedirecionaPesquisa extends HttpServlet {
 
@@ -30,8 +31,7 @@ public class RedirecionaPesquisa extends HttpServlet {
      */
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
+            throws ServletException, IOException {   
             response.setContentType("text/html;charset=UTF-8");
         
             String ultimaEscolha = getUltimaEscolha(request);
@@ -53,10 +53,8 @@ public class RedirecionaPesquisa extends HttpServlet {
      */
     
     private String getUltimaEscolha(HttpServletRequest request) {
-        // Obtém os cookies da requisição
         Cookie[] cookies = request.getCookies();
 
-        // Procura pelo cookie 'ultimaEscolha'
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("ultimaEscolha")) {
@@ -64,6 +62,7 @@ public class RedirecionaPesquisa extends HttpServlet {
                 }
             }
         }
+
         return "";
     }
     
@@ -90,8 +89,19 @@ public class RedirecionaPesquisa extends HttpServlet {
         Cookie cookie = new Cookie("ultimaEscolha", buscadorEscolhido);
         response.addCookie(cookie);
 
-        response.sendRedirect(request.getContextPath() + "/RedirecionaPesquisa");
+        if (buscadorEscolhido.equalsIgnoreCase("Google")) {
+            response.sendRedirect("https://www.google.com");
+        } else if (buscadorEscolhido.equalsIgnoreCase("Yahoo")) {
+            response.sendRedirect("https://www.yahoo.com");
+        } else if (buscadorEscolhido.equalsIgnoreCase("Bing")) {
+            response.sendRedirect("https://www.bing.com");
+        } else if (buscadorEscolhido.equalsIgnoreCase("Cade")) {
+            response.sendRedirect("https://www.cade.com");
+        } else {
+            response.sendRedirect(request.getContextPath() + "/PesquisaServlet");
+        }
     }
+
 
     /**
      * Returns a short description of the servlet.
