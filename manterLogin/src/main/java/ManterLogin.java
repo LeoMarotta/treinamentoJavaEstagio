@@ -21,8 +21,6 @@ import javax.sql.DataSource;
 @WebServlet(urlPatterns = {"/ManterLogin"})
 public class ManterLogin extends HttpServlet {
 
-    @Resource(lookup = "jdbc/testeAula")
-    private DataSource dataSource;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
