@@ -4,6 +4,9 @@
  */
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -66,6 +69,24 @@ public class RedirecionaPesquisa extends HttpServlet {
         return "";
     }
     
+private String construirURLPesquisa(String buscador, String consulta, HttpServletRequest request) throws UnsupportedEncodingException {
+    String contexto = request.getContextPath();
+
+    switch (buscador.toLowerCase()) {
+        case "google":
+            return "https://www.google.com/search?q=" + URLEncoder.encode(consulta, StandardCharsets.UTF_8.toString());
+        case "yahoo":
+            return "https://search.yahoo.com/search?p=" + URLEncoder.encode(consulta, StandardCharsets.UTF_8.toString());
+        case "bing":
+            return "https://www.bing.com/search?q=" + URLEncoder.encode(consulta, StandardCharsets.UTF_8.toString());
+        case "duckduckgo":
+            return "https://www.duckduckgo.com/" + URLEncoder.encode(consulta, StandardCharsets.UTF_8.toString());
+        default:
+            return contexto + "/PesquisaServlet";
+    }
+}
+
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -80,26 +101,18 @@ public class RedirecionaPesquisa extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         String buscadorEscolhido = request.getParameter("buscador");
+        String consulta = request.getParameter("consulta");
 
         Cookie cookie = new Cookie("ultimaEscolha", buscadorEscolhido);
         response.addCookie(cookie);
 
-        if (buscadorEscolhido.equalsIgnoreCase("Google")) {
-            response.sendRedirect("https://www.google.com");
-        } else if (buscadorEscolhido.equalsIgnoreCase("Yahoo")) {
-            response.sendRedirect("https://www.yahoo.com");
-        } else if (buscadorEscolhido.equalsIgnoreCase("Bing")) {
-            response.sendRedirect("https://www.bing.com");
-        } else if (buscadorEscolhido.equalsIgnoreCase("Cade")) {
-            response.sendRedirect("https://www.cade.com");
-        } else {
-            response.sendRedirect(request.getContextPath() + "/PesquisaServlet");
-        }
+        String urlPesquisa = construirURLPesquisa(buscadorEscolhido, consulta, request);
+        response.sendRedirect(urlPesquisa);
     }
 
 

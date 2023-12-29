@@ -41,11 +41,11 @@ form {
     justify-content: center;
 }
 
-/* Adicionando retângulo colorido atrás dos rádios */
+
 .options-container {
-    background-color: #e6f7ff; /* Cor de fundo */
-    padding: 10px; /* Espaçamento interno */
-    border-radius: 8px; /* Bordas arredondadas */
+    background-color: #e6f7ff; 
+    padding: 10px; 
+    border-radius: 8px; 
 }
 
 input[type="radio"] {
@@ -53,7 +53,7 @@ input[type="radio"] {
 }
 
 input[type="submit"] {
-    margin-left: 20px; /* Aumentando o espaço entre os botões */
+    margin-left: 20px; 
     padding: 10px 15px;
     background-color: #007BFF;
     color: #fff;
@@ -64,4 +64,16 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+input[type="text"] {
+    margin-left: 10px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+.quack{
+    margin-left: 20px;
 }

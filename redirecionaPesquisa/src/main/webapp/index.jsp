@@ -20,8 +20,11 @@
                 <label><input type='radio' name='buscador' value='Google'/> Google</label>
                 <label><input type='radio' name='buscador' value='Yahoo'/> Yahoo</label>
                 <label><input type='radio' name='buscador' value='Bing'/> Bing</label>
-                <label><input type='radio' name='buscador' value='Cade'/> Cade</label>
+                <label><input type='radio' name='buscador' value='duckduckgo'/> DuckDuckGO</label>
             </div>
+
+                <label class="quack" for="consulta" >Consulta:</label>
+                <input type="text" id="consulta" name="consulta">
 
             <input type='submit' value='Ir!' />
         </form>
