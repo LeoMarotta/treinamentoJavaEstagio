@@ -14,6 +14,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -29,16 +30,29 @@ public class Filtro implements Filter {
     public Filtro() {
     }
 
-    public void doFilter(ServletRequest request, ServletResponse response,
-            FilterChain chain)
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        HttpServletRequest req = (HttpServletRequest)request;
-        System.out.printf("Indo para o recurso %s\n", req.getRequestURI());
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse res = (HttpServletResponse) response;
 
+        // Verifica se a requisição está tentando acessar uma imagem
+        String requestURI = req.getRequestURI();
+        if (requestURI.endsWith(".jpg") || requestURI.endsWith(".jpeg")) {
+            // Redireciona para a página de acesso negado para URLs de imagens
+            res.sendRedirect(req.getContextPath() + "/acesso-negado.jsp");
+            return;
+        }
 
         chain.doFilter(request, response);
+    }
 
-        System.out.printf("Passou pelo recurso%s\n", req.getRequestURI());
-
+    public void init(FilterConfig filterConfig) {
+        this.filterConfig = filterConfig;
+        if (filterConfig != null) {
+            if (debug) {
+                System.out.println("Filtro:Initializing filter");
+            }
+        }
     }
 }
