@@ -20,7 +20,7 @@
         <h2>Quacker Corp</h2>
     </div>
     <div class="container">
-        <form action="LoginServlet" method="post">
+        <form action="ManterLogin" method="post">
             <label for="usuario">Usuário:</label>
             <input type="text" id="usuario" name="usuario" required><br>
             <label for="senha">Senha:</label>

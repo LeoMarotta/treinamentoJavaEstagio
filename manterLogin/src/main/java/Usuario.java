@@ -14,7 +14,7 @@ public class Usuario implements Serializable {
     private String usuario;
     private String senha;
 
-    public Usuario(String usuario, String senha) {
+    public Usuario(Long id, String usuario, String senha) {
         this.usuario = usuario;
         this.senha = senha;
         this.id = id;
@@ -42,5 +42,9 @@ public class Usuario implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    
+    public boolean testSenha(String senha){
+        return this.senha.equals(senha);
     }
 }

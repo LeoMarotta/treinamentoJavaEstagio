@@ -5,6 +5,13 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,6 +28,9 @@ import javax.sql.DataSource;
 @WebServlet(urlPatterns = {"/ManterLogin"})
 public class ManterLogin extends HttpServlet {
 
+    @Resource(lookup = "jdbc/testeAula")
+    private DataSource dataSource;    
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -33,10 +43,17 @@ public class ManterLogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            
-            
-            
+
+        String usuario = request.getParameter("usuario");
+        String senha = request.getParameter("senha");
+
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        boolean autenticado = usuarioDAO.verificarAutenticacao(usuario, senha);
+
+        if (autenticado) {
+            response.sendRedirect("recomhecido.jsp");
+        } else {
+            request.setAttribute("mensagemErro", "Usuário ou senha inválidos");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
             dispatcher.forward(request, response);
         }
