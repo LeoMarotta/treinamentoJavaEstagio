@@ -23,7 +23,7 @@ public class UsuarioDAO {
 
     public boolean verificarAutenticacao(String nome, String senha, HttpSession session) {
         // Verifica se o usuário já está na sessão
-        if (session.getAttribute(SESSION_KEY) != null) {
+        if (session.getAttribute("usuarioLogado") != null) {
             return true; // Usuário já autenticado na sessão
         }
 
@@ -41,7 +41,7 @@ public class UsuarioDAO {
 
             if (rs.next()) {
                 // Usuário autenticado, armazena na sessão
-                session.setAttribute(SESSION_KEY, nome);
+                session.setAttribute("usuarioLogado", nome);
                 return true;
             }
         } catch (SQLException e) {
