@@ -1,10 +1,5 @@
 package controle;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
-
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -52,6 +47,23 @@ public class ValoresServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String acao = request.getParameter("acao");
+
+        if ("listagem".equals(acao)) {
+            // Redireciona para a página de listagem
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/listagem.jsp");
+            dispatcher.forward(request, response);
+        }
+
+        HttpSession session = request.getSession();
+        Carrinho carrinho = (Carrinho) session.getAttribute("carrinho");
+
+        if (carrinho != null) {
+            // Adiciona o carrinho como um atributo para ser exibido na JSP
+            request.setAttribute("carrinho", carrinho);
+        }
+        
         processRequest(request, response);
     }
 
@@ -66,39 +78,41 @@ public class ValoresServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    String produto = request.getParameter("produto");
-    String valorStr = request.getParameter("valor");
-    
-    // Converte o valor para double (pode ser necessário tratamento de exceção aqui)
-    double valor = Double.parseDouble(valorStr);
-    
-    HttpSession session = request.getSession();
-    
-    // Recupera o carrinho da sessão
-    Carrinho carrinho = (Carrinho) session.getAttribute("carrinho");
-    
-    // Se o carrinho não existir na sessão, cria um novo
-    if (carrinho == null) {
-        carrinho = new Carrinho();
-        session.setAttribute("carrinho", carrinho);
+        request.setCharacterEncoding("UTF-8");
+
+        String produto = request.getParameter("produto");
+        String valorStr = request.getParameter("valor");
+
+        // Converte o valor para double (pode ser necessário tratamento de exceção aqui)
+        double valor = Double.parseDouble(valorStr);
+
+        HttpSession session = request.getSession();
+
+        // Recupera o carrinho da sessão
+        Carrinho carrinho = (Carrinho) session.getAttribute("carrinho");
+
+        // Se o carrinho não existir na sessão, cria um novo
+        if (carrinho == null) {
+            carrinho = new Carrinho();
+            session.setAttribute("carrinho", carrinho);
+        }
+
+        // Adiciona o produto ao carrinho
+        carrinho.adicionarProduto(produto, valor);
+
+        // Redireciona de volta para o index.jsp
+        response.sendRedirect("index.jsp");
     }
-    
-    // Adiciona o produto ao carrinho
-    carrinho.adicionarProduto(produto, valor);
-    
-    // Redireciona de volta para o index.jsp
-    response.sendRedirect("index.jsp");
-}
 
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+        /**
+         * Returns a short description of the servlet.
+         *
+         * @return a String containing servlet description
+         */
+        @Override
+        public String getServletInfo() {
+            return "Short description";
+        }// </editor-fold>
 
-}
+    }
