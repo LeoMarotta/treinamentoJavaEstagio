@@ -1,24 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
-
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 /**
@@ -29,8 +18,8 @@ import javax.sql.DataSource;
 public class ManterLogin extends HttpServlet {
 
     @Resource(lookup = "jdbc/testeAula")
-    private DataSource dataSource;    
-    
+    private DataSource dataSource;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -44,18 +33,43 @@ public class ManterLogin extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String usuario = request.getParameter("usuario");
-        String senha = request.getParameter("senha");
+        // Verifica se o cookie já existe
+        Cookie[] cookies = request.getCookies();
+        boolean userIdCookieExists = false;
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("userId")) {
+                    // Cookie encontrado, usuário já logado
+                    userIdCookieExists = true;
+                    response.sendRedirect("reconhecido.jsp");
+                    break;
+                }
+            }
+        }
+        if(!userIdCookieExists) {
+            // Cookie não encontrado, realiza o processo de login
+            String usuario = request.getParameter("usuario");
+            String senha = request.getParameter("senha");
 
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-        boolean autenticado = usuarioDAO.verificarAutenticacao(usuario, senha);
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            usuarioDAO.setDataSource(dataSource); 
 
-        if (autenticado) {
-            response.sendRedirect("recomhecido.jsp");
-        } else {
-            request.setAttribute("mensagemErro", "Usuário ou senha inválidos");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
-            dispatcher.forward(request, response);
+            HttpSession session = request.getSession();// Cria sessão
+
+            boolean autenticado = usuarioDAO.verificarAutenticacao(usuario, senha, session);
+
+            if (autenticado) {
+                // Cria um cookie com o id do usuário
+                Cookie userIdCookie = new Cookie("userId", usuario); // Use o nome do usuário como valor do cookie
+                userIdCookie.setMaxAge(600); // Tempo de vida do cookie em segundos (10 minutos)
+                response.addCookie(userIdCookie);
+
+                response.sendRedirect("reconhecido.jsp");
+            } else {
+                request.setAttribute("mensagemErro", "Usuário ou senha inválidos");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+                dispatcher.forward(request, response);
+            }
         }
     }
 
