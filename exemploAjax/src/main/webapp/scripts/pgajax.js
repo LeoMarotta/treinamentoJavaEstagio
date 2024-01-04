@@ -14,7 +14,7 @@ function avaliaTecla() {
     initAJAX();
     req.onreadystatechange = retornoAJAX;
     var obj = document.getElementById("txtInput");
-    var url = "ajaxerver?conteudo=" + obj.value;
+    var url = "AJAXServer?conteudo=" + obj.value;
     req.open("GET", url, true);
     req.send(null);
 }

@@ -9,9 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+    <title>Consulta de Nomes de Funcionários</title>
+    <script src="scripts/default.js" defer></script>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <h1>Consulta de Nomes de Funcionários</h1>
+    <label for="nomeFuncionario">Digite o nome do funcionário:</label>
+    <input type="text" id="nomeFuncionario" onkeyup="consultarNomes()">
+    <div id="resultado"></div>
+</body>
