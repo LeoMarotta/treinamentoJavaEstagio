@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author leomarotta
  */
 
-@WebServlet(urlPatterns = {"/AJAXServer"})
-public class AJAXServer extends HttpServlet {
+@WebServlet(urlPatterns = {"/ajaxserver"})
+public class ajaxserver extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) 
@@ -21,7 +21,7 @@ public class AJAXServer extends HttpServlet {
         if (conteudo == null) {
             conteudo = "parametro não recebido";
         }
-        Logger.getLogger(AJAXServer.class.getName()).info(String.format("Parametro [conteudo:%s]", conteudo));
+        Logger.getLogger(ajaxserver.class.getName()).info(String.format("Parametro [conteudo:%s]", conteudo));
         resp.setContentType("text/xml");
         resp.setHeader("Cache-Control", "no-cache");
         resp.getWriter().write(String.format("<retornoajax cor='%s'>%s</retornoajax>", pegaCor(), conteudo.toUpperCase()));

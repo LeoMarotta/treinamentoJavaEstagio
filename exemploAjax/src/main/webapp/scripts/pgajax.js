@@ -1,9 +1,3 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
- */
-
-
 var req;
 var isIE;
 
@@ -20,7 +14,7 @@ function avaliaTecla() {
     initAJAX();
     req.onreadystatechange = retornoAJAX;
     var obj = document.getElementById("txtInput");
-    var url = "ajaxserver?conteudo=" + obj.value;
+    var url = "ajaxerver?conteudo=" + obj.value;
     req.open("GET", url, true);
     req.send(null);
 }
