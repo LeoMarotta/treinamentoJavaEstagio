@@ -5,51 +5,43 @@
 
 body {
     font-family: Arial, sans-serif;
-    left: 50%;
-    right: 50%;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    text-align: center;
 }
 
 h1 {
-    color: #333;
-        left: 50%;
-    right: 50%;
+    background-color: #333;
+    color: white;
+    padding: 10px;
 }
 
 label {
-    margin-bottom: 10px;
-    left: 50%;
-    right: 50%;
+    margin-top: 20px;
+    font-size: 18px;
 }
 
-input {
-    padding: 5px;
-    font-size: 16px;
-    left: 50%;
-    right: 50%;
+#nome {
+    padding: 10px;
 }
 
 #resultado {
-    margin-top: 10px;
-    border: 1px solid #ccc;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#resultado li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
     padding: 10px;
-    max-width: 300px;
-    left: 50%;
-    right: 50%;
+    text-align: left;
 }
 
 ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    left: 50%;
+    text-align: center;
     right: 50%;
-}
-
-li {
-    border-bottom: 1px solid #ccc;
-    padding: 5px;
-}
-
-li:last-child {
-    border-bottom: none;
+    left: 50%;
 }

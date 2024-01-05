@@ -7,8 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Consulta de Nomes de Funcionários</title>
     <script src="scripts/default.js" defer></script>
     <link rel="stylesheet" href="styles/style.css">
@@ -19,3 +19,4 @@
     <input type="text" id="nome" onkeyup="consultarNomes()">
     <div id="resultado"></div>
 </body>
+</html>
