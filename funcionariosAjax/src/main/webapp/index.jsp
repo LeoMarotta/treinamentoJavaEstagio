@@ -15,7 +15,7 @@
 </head>
 <body>
     <h1>Consulta de Nomes de Funcionários</h1>
-    <label for="nomeFuncionario">Digite o nome do funcionário:</label>
-    <input type="text" id="nomeFuncionario" onkeyup="consultarNomes()">
+    <label for="nome">Digite o nome do funcionário:</label>
+    <input type="text" id="nome" onkeyup="consultarNomes()">
     <div id="resultado"></div>
 </body>

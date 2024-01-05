@@ -1,12 +1,12 @@
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
-import javax.jms.Connection;
-import javax.resource.cci.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,8 +18,8 @@ import javax.sql.DataSource;
  *
  * @author leomarotta
  */
-@WebServlet(urlPatterns = {"/ajaxserver"})
-public class ajaxserver extends HttpServlet {
+@WebServlet(urlPatterns = {"/funcionarios"})
+public class AJAXServer extends HttpServlet {
     
     @Resource(lookup = "jdbc/testeAula")
     private DataSource dataSource;
@@ -41,7 +41,6 @@ public class ajaxserver extends HttpServlet {
             }
             resposta.append("</ul>");
 
-            // Configura a resposta com o conteúdo gerado
             response.setContentType("text/html");
             response.getWriter().write(resposta.toString());
 
@@ -53,14 +52,14 @@ public class ajaxserver extends HttpServlet {
         }
     }
 
-    private List<String> consultarBanco(String nomeFuncionario) throws SQLException {
+    private List<String> consultarBanco(String nome) throws SQLException {
         List<String> resultados = new ArrayList<>();
 
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT nome FROM funcionario WHERE nome LIKE ?";
             
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
-                statement.setString(1, "%" + nomeFuncionario + "%");
+                statement.setString(1, "%" + nome + "%");
                 
                 try (ResultSet resultSet = statement.executeQuery()) {
                     while (resultSet.next()) {
