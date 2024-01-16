@@ -1,12 +1,20 @@
 package br.tche.ucpel.bd2.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+
 /**
  * Classe que representa a Entidade Usuário no Sistema.
  * 
  * @author mertins
  */
+
+@Entity
+@Table(name = "usuario")
 public class Usuario {
 
+    @Id
     private int cod;
     private String login;
     private String senha;

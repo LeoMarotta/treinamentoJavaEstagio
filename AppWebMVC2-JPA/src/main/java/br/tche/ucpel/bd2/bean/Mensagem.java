@@ -1,12 +1,19 @@
 package br.tche.ucpel.bd2.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+
 /**
  *
  * @author mertins
  */
 
+@Entity
+@Table(name = "mensagem")
 public class Mensagem {
 
+    @Id
     private int cod;
     private String titulo;
     private String texto;
