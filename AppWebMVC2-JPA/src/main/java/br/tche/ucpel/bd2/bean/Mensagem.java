@@ -3,6 +3,8 @@ package br.tche.ucpel.bd2.bean;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -18,6 +20,8 @@ public class Mensagem {
     private String titulo;
     private String texto;
     private String link;
+    @ManyToOne
+    @JoinColumn(name = "codusuario")
     private Usuario usuario;
 
     public int getCod() {
