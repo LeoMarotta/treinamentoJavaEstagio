@@ -41,3 +41,14 @@
 /htmlDoc/target/
 /testeEJB/target/
 /AppWebMVC2-JPA/target/
+/JPA/EnterpriseJPA/EnterpriseJPA-ejb/nbproject/private/
+/JPA/EnterpriseJPA/EnterpriseJPA-war/nbproject/private/
+/JPA/EnterpriseJPA/nbproject/private/
+/JPA/SwingJPA/nbproject/private/
+/JPA/EnterpriseJPA/dist/
+/JPA/EnterpriseJPA/build/
+/JPA/EnterpriseJPA/EnterpriseJPA-war/dist/
+/JPA/EnterpriseJPA/EnterpriseJPA-war/build/
+/JPA/EnterpriseJPA/EnterpriseJPA-ejb/build/
+/JPA/EnterpriseJPA/EnterpriseJPA-ejb/dist/
+/JPA/SwingJPA/build/
