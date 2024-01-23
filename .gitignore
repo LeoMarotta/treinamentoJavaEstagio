@@ -55,3 +55,9 @@
 /AppQueryJPA/AppQueryJPA-ejb/nbproject/private/
 /AppQueryJPA/AppQueryJPA-war/nbproject/private/
 /AppQueryJPA/nbproject/private/
+/AppQueryJPA/AppQueryJPA-ejb/build/
+/AppQueryJPA/AppQueryJPA-war/build/
+/AppQueryJPA/build/
+/AppQueryJPA/AppQueryJPA-war/dist/
+/AppQueryJPA/AppQueryJPA-ejb/dist/
+/AppQueryJPA/dist/
