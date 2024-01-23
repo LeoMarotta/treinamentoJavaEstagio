@@ -52,3 +52,6 @@
 /JPA/EnterpriseJPA/EnterpriseJPA-ejb/build/
 /JPA/EnterpriseJPA/EnterpriseJPA-ejb/dist/
 /JPA/SwingJPA/build/
+/AppQueryJPA/AppQueryJPA-ejb/nbproject/private/
+/AppQueryJPA/AppQueryJPA-war/nbproject/private/
+/AppQueryJPA/nbproject/private/
