@@ -31,9 +31,11 @@ public class JPAQueries implements JPAQueriesRemote {
     @Override
     public void popula() {
         try {
+            
             Departamento dept = new Departamento();
             dept.setDescricao("RH");
             em.persist(dept);
+            
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             Funcionario func = new Funcionario();
             func.setDepartamento(dept);
@@ -43,6 +45,7 @@ public class JPAQueries implements JPAQueriesRemote {
             func.setSalario(1000.0);
             func.setCpf("12142");
             em.persist(func);
+            
             func = new Funcionario();
             func.setDepartamento(dept);
             func.setDtContratacao(new Date());
