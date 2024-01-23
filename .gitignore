@@ -61,3 +61,11 @@
 /AppQueryJPA/AppQueryJPA-war/dist/
 /AppQueryJPA/AppQueryJPA-ejb/dist/
 /AppQueryJPA/dist/
+/AppJSF/nbproject/private/
+/AppJSF/AppJSF-war/nbproject/private/
+/AppJSF/AppJSF-ejb/nbproject/private/
+/AppJSF/AppJSF-war/build/
+/AppJSF/AppJSF-ejb/build/
+/AppJSF/AppJSF-ejb/dist/
+/AppJSF/AppJSF-war/dist/
+/AppJSF/build/
