@@ -4,23 +4,20 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core">
+
     <ui:composition template="/WEB-INF/templates/default.xhtml">
         <ui:define name="content">
             <h:form id="formulario">
-                <h:outputText value="#{msgs.titRegiaoUpdate}" styleClass="tituloCadastros"/>
-                <br/>
-                <h:outputLabel styleClass="labels" for="txtCodigo" value="#{msgs.lbRegiaoId}"/>
-                <h:inputText id="txtCodigo" styleClass="inputs" value="#{regiaoMNG.codigo}" readonly="true" validatorMessage="#{msgs.msgCodRegiao}" >
-                    <f:validateLongRange/>
-                </h:inputText>
-                <h:inputHidden value="#{regiaoMNG.codigo}"/>
-                <h:message for="txtCodigo" styleClass="error"/>
+                <h:outputText value="#{msgs.titRegiaoNew}" styleClass="tituloCadastros"/>
                 <br/>
                 <h:outputLabel styleClass="labels" for="txtNome" value="#{msgs.lbRegiaoNome}"/>
                 <h:inputText id="txtNome" styleClass="inputs" value="#{regiaoMNG.nome}" />
                 <h:message for="txtNome" styleClass="error"/>
                 <br/>
-                <h:commandButton styleClass="buttons" value="#{msgs.btUpdate}" action="#{regiaoMNG.update}"/>
+                <h:commandButton styleClass="buttons" value="#{msgs.btClear}">
+                    <f:ajax render="@form" listener="#{regiaoMNG.clear}"/>
+                </h:commandButton>
+                <h:commandButton styleClass="buttons" value="#{msgs.btSave}" action="#{regiaoMNG.save}"/>
             </h:form>
         </ui:define>
     </ui:composition>
