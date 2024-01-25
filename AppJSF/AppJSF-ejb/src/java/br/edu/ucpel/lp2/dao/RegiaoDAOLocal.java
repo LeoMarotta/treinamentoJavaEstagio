@@ -4,10 +4,6 @@ import br.edu.ucpel.lp2.jpa.Regiao;
 import java.util.List;
 import javax.ejb.Local;
 
-/**
- *
- * @author mertins
- */
 @Local
 public interface RegiaoDAOLocal {
 

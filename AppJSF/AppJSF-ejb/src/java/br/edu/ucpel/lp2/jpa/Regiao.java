@@ -11,15 +11,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "jpa_regiao")
-@NamedQuery(name = "Regiao.findAll", query = "select o from Regiao o order by o.nome")
+@NamedQuery(name = "Regiao.findAll", query = "select o from Regiao o order by o.pais, o.estado, o.cidade")
 public class Regiao implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
-
-    @Column(nullable = false, length = 400)
-    private String nome;
 
     @Column(nullable = false, length = 100)
     private String pais;
@@ -33,8 +30,7 @@ public class Regiao implements Serializable {
     public Regiao() {
     }
 
-    public Regiao(String nome, String pais, String estado, String cidade) {
-        this.nome = nome;
+    public Regiao(String pais, String estado, String cidade) {
         this.pais = pais;
         this.estado = estado;
         this.cidade = cidade;
@@ -46,14 +42,6 @@ public class Regiao implements Serializable {
 
     public void setCodigo(Long codigo) {
         this.codigo = codigo;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getPais() {

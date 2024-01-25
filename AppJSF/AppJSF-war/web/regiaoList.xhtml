@@ -19,12 +19,23 @@
                             </f:facet>
                             <h:outputText value="#{regiao.codigo}"/>
                         </h:column>
-                        <!-- Adapte os atributos conforme a classe Regiao -->
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{msgs.lbRegiaoNome}"/>
+                                <h:outputText value="#{msgs.lbRegiaoPais}"/>
                             </f:facet>
-                            <h:outputText value="#{regiao.nome}"/>
+                            <h:outputText value="#{regiao.pais}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{msgs.lbRegiaoEstado}"/>
+                            </f:facet>
+                            <h:outputText value="#{regiao.estado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{msgs.lbRegiaoCidade}"/>
+                            </f:facet>
+                            <h:outputText value="#{regiao.cidade}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">

@@ -6,10 +6,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-/**
- *
- * @author mertins
- */
 @Stateless
 public class RegiaoDAO implements RegiaoDAOLocal {
 
