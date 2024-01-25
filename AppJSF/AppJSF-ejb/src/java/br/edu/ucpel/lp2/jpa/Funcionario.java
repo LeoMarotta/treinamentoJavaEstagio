@@ -15,10 +15,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- *
- * @author mertins
- */
 @Entity
 @Table(name = "jpa_funcionario")
 @NamedQuery(name = "Funcionario.findAll", query = "select o from Funcionario o order by o.nome")
@@ -28,15 +24,23 @@ public class Funcionario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seqGerFuncionario")
     private Long codigo;
-    @Column(nullable = false,length=400)
+    
+    @Column(nullable = false, length = 400)
     private String nome;
+    
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtContratacao;
+    
     private Double salario;
+    
     @ManyToOne
     @JoinColumn(name = "CODDEPARTAMENTO", referencedColumnName = "CODIGO")
     private Departamento departamento;
+
+    @ManyToOne
+    @JoinColumn(name = "CODREGIAO", referencedColumnName = "CODIGO")
+    private Regiao regiao;
 
     public Long getCodigo() {
         return codigo;
@@ -52,6 +56,14 @@ public class Funcionario implements Serializable {
 
     public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
+    }
+
+    public Regiao getRegiao() {
+        return regiao;
+    }
+
+    public void setRegiao(Regiao regiao) {
+        this.regiao = regiao;
     }
 
     public Date getDtContratacao() {

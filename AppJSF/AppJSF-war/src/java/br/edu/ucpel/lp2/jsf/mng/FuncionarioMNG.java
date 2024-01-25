@@ -3,6 +3,7 @@ package br.edu.ucpel.lp2.jsf.mng;
 import br.edu.ucpel.lp2.dao.FuncionarioDAOLocal;
 import br.edu.ucpel.lp2.jpa.Departamento;
 import br.edu.ucpel.lp2.jpa.Funcionario;
+import br.edu.ucpel.lp2.jpa.Regiao;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
@@ -12,26 +13,25 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.validation.constraints.Pattern;
 
-/**
- *
- * @author mertins
- */
 @Named(value = "funcionarioMNG")
 @RequestScoped
 public class FuncionarioMNG {
 
     @EJB
     FuncionarioDAOLocal dao;
+    
     private String codigo;
+    
     @Pattern(regexp = "(.+)", message = "{invalid.funcionario.descricao}")
     private String nome;
+    
+    private Regiao regiao;
+    
     private Date dtContratacao;
     private Double salario;
+    
     private Departamento departamento;
 
-    /**
-     * Creates a new instance of DepartamentoMNG
-     */
     public FuncionarioMNG() {
     }
 
@@ -49,6 +49,14 @@ public class FuncionarioMNG {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Regiao getRegiao() {
+        return regiao;
+    }
+
+    public void setRegiao(Regiao regiao) {
+        this.regiao = regiao;
     }
 
     public Date getDtContratacao() {
@@ -82,10 +90,13 @@ public class FuncionarioMNG {
     public void clear(AjaxBehaviorEvent event) {
         this.codigo = null;
         this.nome = null;
+        this.regiao = null;
+        this.departamento = null;
     }
 
     public String save() {
         Funcionario elem = new Funcionario();
+        elem.setRegiao(this.regiao);
         elem.setDepartamento(this.departamento);
         elem.setDtContratacao(new Date());
         elem.setNome(this.nome);
@@ -111,6 +122,7 @@ public class FuncionarioMNG {
         this.nome = elem.getNome();
         this.salario = elem.getSalario();
         this.dtContratacao = elem.getDtContratacao();
+        this.regiao = elem.getRegiao();
         this.departamento = elem.getDepartamento();
         return "funcionarioUpdate";
     }
@@ -119,6 +131,7 @@ public class FuncionarioMNG {
         Funcionario elem = new Funcionario();
         elem.setCodigo(Long.valueOf(codigo));
         elem.setNome(nome);
+        elem.setRegiao(regiao);
         elem.setDepartamento(departamento);
         elem.setSalario(salario);
         elem.setDtContratacao(dtContratacao);

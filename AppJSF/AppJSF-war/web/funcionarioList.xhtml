@@ -32,6 +32,12 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
+                                <h:outputText value="#{msgs.lbFuncRegiao}"/>
+                            </f:facet>
+                            <h:outputText value="#{func.departamento.regiao.cidade}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
                                 <h:outputText value=" " />
                             </f:facet>
                             <h:commandLink immediate="true" value="#{msgs.btRemove}"  actionListener="#{funcionarioMNG.remove()}" onclick="if (!confirm('#{msgs.msgConfRemove}')) return false" >
@@ -52,4 +58,3 @@
         </ui:define>
     </ui:composition>
 </html>
-

@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
@@ -17,8 +19,13 @@ public class Departamento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
+
     @Column(nullable = false, length = 400)
     private String descricao;
+
+    @ManyToOne
+    @JoinColumn(name = "CODREGIAO", referencedColumnName = "CODIGO")
+    private Regiao regiao;
 
     public Long getCodigo() {
         return codigo;
@@ -34,6 +41,14 @@ public class Departamento implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Regiao getRegiao() {
+        return regiao;
+    }
+
+    public void setRegiao(Regiao regiao) {
+        this.regiao = regiao;
     }
 
     @Override

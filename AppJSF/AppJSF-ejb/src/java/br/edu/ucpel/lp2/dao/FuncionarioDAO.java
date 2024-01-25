@@ -1,15 +1,12 @@
 package br.edu.ucpel.lp2.dao;
 
 import br.edu.ucpel.lp2.jpa.Funcionario;
+import br.edu.ucpel.lp2.jpa.Regiao;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-/**
- *
- * @author mertins
- */
 @Stateless
 public class FuncionarioDAO implements FuncionarioDAOLocal {
 
@@ -57,5 +54,13 @@ public class FuncionarioDAO implements FuncionarioDAOLocal {
             ret = true;
         }
         return ret;
+    }
+
+    @Override
+    public List<Funcionario> getFuncionariosPorRegiao(Regiao regiao) {
+        // Ajuste conforme a estrutura real da sua classe Funcionario
+        return em.createQuery("SELECT f FROM Funcionario f WHERE f.regiao = :regiao", Funcionario.class)
+                .setParameter("regiao", regiao)
+                .getResultList();
     }
 }

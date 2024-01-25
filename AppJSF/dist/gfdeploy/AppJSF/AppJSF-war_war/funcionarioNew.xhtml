@@ -10,8 +10,14 @@
                 <h:outputText value="#{msgs.titFuncNew}" styleClass="tituloCadastros"/>
                 <br/>
                 <h:outputLabel styleClass="labels" for="txtDescricao" value="#{msgs.lbFuncNome}"/>
-                <h:inputText id="txtDescricao" styleClass="inputs" value="${funcionarioMNG.nome}" />
+                <h:inputText id="txtDescricao" styleClass="inputs" value="#{funcionarioMNG.nome}" />
                 <h:message for="txtDescricao" styleClass="error"/>
+                <br/>
+                <h:outputLabel styleClass="labels" for="cmbRegiao" value="#{msgs.lbCmbRegiao}"/>
+                <h:selectOneMenu id="cmbRegiao" styleClass="combos" converter="regiaoConverter" value="#{funcionarioMNG.regiao}">
+                    <f:selectItems value="#{regiaoMNG.listaSelectItem}" var="vRegiao" itemLabel="#{vRegiao.cidade}"/>
+                </h:selectOneMenu>
+                <h:message for="cmbRegiao" styleClass="error"/>
                 <br/>
                 <h:outputLabel styleClass="labels" for="cmbDepartamento" value="#{msgs.lbCmbDept}"/>
                 <h:selectOneMenu id="cmbDepartamento" styleClass="combos" converter="departamentoConverter" value="#{funcionarioMNG.departamento}">
@@ -27,4 +33,3 @@
         </ui:define>
     </ui:composition>
 </html>
-

@@ -75,7 +75,7 @@ public class Regiao implements Serializable {
 
         Regiao regiao = (Regiao) obj;
 
-        return codigo != null ? codigo.equals(regiao.codigo) : regiao.codigo == null;
+        return !(codigo != null ? !codigo.equals(regiao.codigo) : regiao.codigo != null);
     }
 
     @Override
